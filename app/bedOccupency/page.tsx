@@ -103,8 +103,8 @@ export default function Home() {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="p-6">
+        <div className="w-full">
+          <Card className="p-6 mb-8">
             <h2 className="text-xl font-semibold mb-4">Department Status</h2>
             <div className="space-y-6">
               {departments.map((dept) => (
