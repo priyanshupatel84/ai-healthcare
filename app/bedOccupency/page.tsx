@@ -37,6 +37,10 @@ export default function Home() {
   }, []);
 
   const handleDateChange = async (newDate: Date | undefined) => {
+    if (!newDate || newDate.getTime() < Date.now()) {
+      alert("Cant't select a previous date");
+      return; // Prevent selecting past dates or undefined
+    }
     setDate(newDate);
     setLoading(true);
     // Simulate API call
@@ -62,14 +66,14 @@ export default function Home() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
               <Bed className="h-8 w-8 text-primary" />
-              <h1 className="ml-2 text-xl font-semibold">Hospital Bed Management</h1>
+              <h1 className="ml-2 text-xl font-semibold">Bed Occupency</h1>
             </div>
-            <button
+            {/* <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg hover:bg-accent"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
+            </button> */}
           </div>
         </div>
       </nav>
